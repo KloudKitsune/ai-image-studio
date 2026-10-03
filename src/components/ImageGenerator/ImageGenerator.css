@@ -54,3 +54,9 @@
 .image-generator__button:hover {
   opacity: 0.8;
 }
+
+.image-generator__error {
+  margin: 12px 0 0;
+  font-size: 14px;
+  text-align: left;
+}

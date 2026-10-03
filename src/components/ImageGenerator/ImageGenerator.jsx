@@ -3,6 +3,8 @@ import "./ImageGenerator.css";
 
 function ImageGenerator({ onImageGenerated }) {
   const [prompt, setPrompt] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -10,6 +12,9 @@ function ImageGenerator({ onImageGenerated }) {
     if (!prompt.trim()) {
       return;
     }
+
+    setIsLoading(true);
+    setError("");
 
     try {
       const response = await fetch("http://localhost:5000/api/images", {
@@ -32,6 +37,9 @@ function ImageGenerator({ onImageGenerated }) {
       setPrompt("");
     } catch (error) {
       console.error("Image generation error:", error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -53,10 +61,16 @@ function ImageGenerator({ onImageGenerated }) {
             onChange={(event) => setPrompt(event.target.value)}
           />
 
-          <button className="image-generator__button" type="submit">
-            Generate
+          <button
+            className="image-generator__button"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Generating..." : "Generate"}
           </button>
         </form>
+
+        {error && <p className="image-generator__error">{error}</p>}
       </div>
     </section>
   );
