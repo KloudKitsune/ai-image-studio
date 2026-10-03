@@ -1,13 +1,7 @@
 import ImageCard from "./ImageCard";
 import "./ImageGrid.css";
 
-function ImageGrid() {
-  const images = [
-    "https://placehold.co/400x400",
-    "https://placehold.co/400x400",
-    "https://placehold.co/400x400",
-  ];
-
+function ImageGrid({ images }) {
   return (
     <section className="image-grid">
       <h2 className="image-grid__title">Your Creations</h2>

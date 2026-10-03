@@ -5,7 +5,7 @@ function ImageCard({ image }) {
     <article className="image-card">
       <img
         className="image-card__image"
-        src={image}
+        src={`data:image/jpeg;base64,${image}`}
         alt="AI generated creation"
       />
     </article>
