@@ -6,7 +6,7 @@ const cors = require("cors");
 const imageRoutes = require("./routes/imageRoutes");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
