@@ -1,16 +1,22 @@
 import ImageCard from "./ImageCard";
 import "./ImageGrid.css";
 
-function ImageGrid({ images }) {
+function ImageGrid({ images, onImageDelete }) {
   return (
     <section className="image-grid">
       <h2 className="image-grid__title">Your Creations</h2>
 
-      <div className="image-grid__container">
-        {images.map((image, index) => (
-          <ImageCard key={index} image={image} />
-        ))}
-      </div>
+      {images.length === 0 ? (
+        <p className="image-grid__empty">
+          No creations yet. Describe an image above to get started.
+        </p>
+      ) : (
+        <div className="image-grid__container">
+          {images.map((image) => (
+            <ImageCard key={image} image={image} onDelete={onImageDelete} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

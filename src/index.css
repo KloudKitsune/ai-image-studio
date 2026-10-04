@@ -1,16 +1,30 @@
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --color-background: #181a1f;
+  --color-surface: #20232a;
+  --color-surface-hover: #272a32;
+  --color-border: #343842;
+  --color-text: #f1f3f5;
+  --color-text-secondary: #a7adb8;
+  --color-text-muted: #737985;
+  --color-primary: #ffffff;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f7f7f8;
-  color: #1f1f1f;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
+
 button,
 input {
   font: inherit;
 }
+
 button {
   cursor: pointer;
 }

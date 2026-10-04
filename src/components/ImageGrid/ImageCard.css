@@ -1,20 +1,62 @@
 .image-card {
+  position: relative;
   width: 100%;
   overflow: hidden;
+  border: 1px solid var(--color-border);
   border-radius: 16px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background-color: var(--color-surface);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
+
 .image-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
+
 .image-card__image {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+.image-card__delete {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: rgba(24, 26, 31, 0.9);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.image-card:hover .image-card__delete,
+.image-card:focus-within .image-card__delete {
+  opacity: 1;
+}
+
+.image-card__delete:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.image-card__delete:hover {
+  background-color: var(--color-surface-hover);
+}
+
+@media (max-width: 600px) {
+  .image-card__delete {
+    opacity: 1;
+  }
 }

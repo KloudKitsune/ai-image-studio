@@ -9,10 +9,16 @@ function App() {
     setImages((currentImages) => [image, ...currentImages]);
   };
 
+  const handleImageDelete = (imageToDelete) => {
+    setImages((currentImages) =>
+      currentImages.filter((image) => image !== imageToDelete),
+    );
+  };
+
   return (
     <main>
       <ImageGenerator onImageGenerated={handleImageGenerated} />
-      <ImageGrid images={images} />
+      <ImageGrid images={images} onImageDelete={handleImageDelete} />
     </main>
   );
 }
