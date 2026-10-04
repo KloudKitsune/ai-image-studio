@@ -17,15 +17,18 @@ function ImageGenerator({ onImageGenerated }) {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/images", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://ai-image-studio-x34q.onrender.com/api/images",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt,
+          }),
         },
-        body: JSON.stringify({
-          prompt,
-        }),
-      });
+      );
 
       const data = await response.json();
 
