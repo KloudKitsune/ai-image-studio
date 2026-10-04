@@ -4,6 +4,15 @@ AI Image Studio is a full-stack web application that lets users generate images 
 
 I built this project using React for the frontend and Express/Node.js for the backend. The backend connects to Cloudflare Workers AI to generate the images, which are then displayed in the application.
 
+## Try It Online
+
+You can use the deployed application without installing anything:
+
+Live Application:
+https://kloudkitsune.github.io/ai-image-studio/
+
+The frontend connects to the deployed Express backend automatically, so no Cloudflare account or API credentials are required when using the website.
+
 ## Features
 
 - Generate AI images from text prompts
@@ -28,6 +37,20 @@ I built this project using React for the frontend and Express/Node.js for the ba
 - FLUX.1 Schnell
 
 ## Getting Started
+
+There are two ways to use AI Image Studio.
+
+## Option 1 - Use the Deployed Website
+
+The easiest way to use the application is through the live website:
+
+https://kloudkitsune.github.io/ai-image-studio/
+
+- No installation or configuration is required.
+
+## Option 2 - Run the Project Locally
+
+Running the project locally allows you to view and modify both the frontend and backend.
 
 # Requirements
 
