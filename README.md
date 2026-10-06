@@ -2,7 +2,7 @@
 
 AI Image Studio is a full-stack web application that lets users generate images using text prompts.
 
-I built this project using React for the frontend and Express/Node.js for the backend. The backend connects to Cloudflare Workers AI to generate the images, which are then displayed in the application.
+The project uses React for the frontend and Express/Node.js for the backend. The backend connects to Cloudflare Workers AI and the FLUX.1 Schnell model to generate images, which are then returned to and displayed by the frontend.
 
 ## Video Overview
 
@@ -16,6 +16,32 @@ Live Application:
 https://kloudkitsune.github.io/ai-image-studio/
 
 The frontend connects to the deployed Express backend automatically, so no Cloudflare account or API credentials are required when using the website.
+
+## Architecture
+
+User
+↓
+React / Vite
+↓
+GitHub Pages
+↓
+Express / Node.js Backend
+↓
+Render
+↓
+Cloudflare Workers AI
+↓
+FLUX.1 Schnell
+↓
+Generated Image
+↓
+Express Backend
+↓
+React Frontend
+
+The frontend and backend are deployed separately. GitHub Pages hosts the React application, while Render hosts the Express/Node.js backend.
+
+Cloudflare API credentials are stored securely on the backend and are never exposed to the frontend.
 
 ## Features
 
@@ -31,14 +57,28 @@ The frontend connects to the deployed Express backend automatically, so no Cloud
 
 ## Technologies
 
+# Frontend
+
 - React
 - Vite
 - JavaScript
 - CSS
+
+# Backend
+
 - Node.js
 - Express
+- REST API
+
+# AI
+
 - Cloudflare Workers AI
 - FLUX.1 Schnell
+
+# Deployment
+
+- GitHub Pages
+- Render
 
 ## Getting Started
 
@@ -130,6 +170,19 @@ The frontend will run on:
 
 http://localhost:3000
 
+## Backend - Render
+
+The Express/Node.js backend is deployed through Render as a web service.
+
+Render runs the backend server and allows the deployed application to communicate with Cloudflare Workers AI.
+
+The backend uses the following environment variables in Render:
+
+CLOUDFLARE_ACCOUNT_ID
+CLOUDFLARE_API_TOKEN
+
+These credentials are stored securely through Render's environment variable configuration and are not included in the GitHub repository.
+
 ## How It Works
 
 The basic flow of the application is:
@@ -180,7 +233,6 @@ This was intentional for the current version of the project so I could focus on 
 - Add image generation history
 - Support additional AI models
 - Add more image generation options
-- Deploy the application to production
 
 ## Author
 
